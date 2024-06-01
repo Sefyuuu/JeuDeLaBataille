@@ -1,0 +1,29 @@
+from flask import Flask, render_template, request
+from game_logic import Player, WarGame
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/simulate', methods=['POST'])
+def simulate():
+    condition = {
+        'Ace': int(request.form.get('aces', 0)),
+        'King': int(request.form.get('kings', 0)),
+        'Jack': int(request.form.get('jacks', 0))
+    }
+
+    player1 = Player('Player1')
+    player2 = Player('Player2')
+
+    game = WarGame(player1, player2)
+
+    probabilities = game.calculate_probabilities(condition)
+
+    return render_template('result.html', probabilities=probabilities)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+

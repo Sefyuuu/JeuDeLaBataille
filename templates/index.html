@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>War Game Simulator</title>
+</head>
+<body>
+  <h1>War Game Simulator</h1>
+  {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+  {% endif %}
+  <form action="/simulate" method="post">
+    <label for="aces">Number of Aces:</label>
+    <input type="number" id="aces" name="aces" min="0" value="0" max="4"><br>
+    <label for="kings">Number of Kings:</label>
+    <input type="number" id="kings" name="kings" min="0" value="0" max="4"><br>
+    <label for="jacks">Number of Jacks:</label>
+    <input type="number" id="jacks" name="jacks" min="0" value="0" max="4"><br>
+    <label for="queens">Number of Queens:</label>
+    <input type="number" id="queens" name="queens" min="0" value="0" max="4"><br>
+    <label for="sevens">Number of 7s:</label>
+    <input type="number" id="sevens" name="sevens" min="0" value="0" max="4"><br>
+    <label for="eights">Number of 8s:</label>
+    <input type="number" id="eights" name="eights" min="0" value="0" max="4"><br>
+    <label for="nines">Number of 9s:</label>
+    <input type="number" id="nines" name="nines" min="0" value="0" max="4"><br>
+    <label for="tens">Number of 10s:</label>
+    <input type="number" id="tens" name="tens" min="0" value="0" max="4"><br>
+    <input type="submit" value="Simulate">
+
+  </form>
+</body>
+</html>
+
